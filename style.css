@@ -1,0 +1,149 @@
+/* Ерөнхий тохиргоо */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f6f8;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* 1. HEADER & NAVIGATION (Flexbox ашиглав) */
+.header {
+    background-color: #1e293b;
+    color: #ffffff;
+    padding: 15px 30px;
+    display: flex; /* Flexbox */
+    justify-content: space-between; /* Хоёр захад нь байрлуулах */
+    align-items: center; /* Босоо дагуу төвлөрүүлэх */
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav {
+    display: flex; /* Flexbox */
+    gap: 20px; /* Элемент хоорондын зай */
+}
+
+.nav a {
+    color: #e2e8f0;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav a:hover {
+    color: #38bdf8;
+}
+
+/* 2. MAIN LAYOUT CONTAINER (CSS Grid ашиглав) */
+.container {
+    display: grid; /* CSS Grid */
+    grid-template-columns: 250px 1fr; /* Sidebar: 250px, Main content: Үлдсэн зай */
+    gap: 20px; /* Дунд талын зай */
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+    flex: 1; /* Body-д үлдсэн зайг эзлүүлэх */
+}
+
+/* SIDEBAR */
+.sidebar {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.sidebar h3 {
+    margin-bottom: 15px;
+    color: #0f172a;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar ul li {
+    margin-bottom: 10px;
+}
+
+.sidebar ul li a {
+    color: #64748b;
+    text-decoration: none;
+}
+
+.sidebar ul li a:hover {
+    color: #0284c7;
+}
+
+/* MAIN CONTENT & CARD GRID (CSS Grid ашиглав) */
+.main-content {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.main-content h2 {
+    margin-bottom: 20px;
+    color: #0f172a;
+}
+
+.card-grid {
+    display: grid; /* CSS Grid */
+    grid-template-columns: repeat(3, 1fr); /* 3 сул багана */
+    gap: 15px; /* Карт хоорондын зай */
+}
+
+.card {
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    padding: 15px;
+    border-radius: 6px;
+    transition: transform 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+}
+
+.card h3 {
+    margin-bottom: 10px;
+    color: #1e293b;
+}
+
+/* 3. FOOTER */
+.footer {
+    background-color: #0f172a;
+    color: #94a3b8;
+    text-align: center;
+    padding: 15px;
+    margin-top: auto;
+}
+
+/* РЕСПОНСИВ ТАЙЛБАР (Дэлгэц жижигрэхэд тохирох) */
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr; /* Жижиг дэлгэц дээр 1 баганатай болно */
+    }
+
+    .card-grid {
+        grid-template-columns: 1fr; /* Жижиг дэлгэц дээр картууд 1 баганатай болно */
+    }
+
+    .header {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
